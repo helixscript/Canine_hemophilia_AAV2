@@ -1,0 +1,36 @@
+vector,feature,start,end
+SC,5' ITR,1,173
+SC,Spacer,174,186
+SC,Promoter,187,712
+SC,Spacer,713,720
+SC,Secretion signal,721,778
+SC,F8,779,5108
+SC,PolyA,5109,5242
+SC,Spacer,5243,5255
+SC,3' ITR,5256,5429
+LC,5' ITR,1,173
+LC,Spacer,174,196
+LC,Promoter,197,891
+LC,Spacer,892,917
+LC,Intron,918,1050
+LC,Spacer,1051,1116
+LC,Secretion signal,1117,1173
+LC,B-domain,1174,1410
+LC,F8 LC,1411,3483
+LC,Spacer,3484,3497
+LC,PolyA,3498,3735
+LC,Spacer,3736,3756
+LC,3' ITR,3757,3929
+HC,5' ITR,1,173
+HC,Spacer,174,196
+HC,Promoter,197,891
+HC,Spacer,892,917
+HC,Intron,918,1050
+HC,Spacer,1051,1101
+HC,Secretion signal,1102,1158
+HC,F8 HC,1159,3375
+HC,B-domain,3376,3628
+HC,Spacer,3629,3635
+HC,PolyA,3636,3873
+HC,Spacer,3874,3893
+HC,3' ITR,3894,4067

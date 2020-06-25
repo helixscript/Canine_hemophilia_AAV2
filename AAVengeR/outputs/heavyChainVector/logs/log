@@ -1,0 +1,77 @@
+Thu Jun 11 15:26:09 2020
+[3.3 minutes]	Converting index reads to DNA strings.
+[5.9 minutes]	Correcting golay bar code reads.
+[9.1 minutes]	Converting virus reads to DNA strings.
+[11.3 minutes]	Converting break reads to DNA strings.
+[13.8 minutes]	Synchronizing trimmed reads.
+[24.4 minutes]	Distributing read data into chunks ...
+[86.3 minutes]	30 data chunks created.
+[86.3 minutes]	Starting sample chunk threads, resetting timer.
+[105.3 minutes]	Read data chunk 11 completed.
+[105.4 minutes]	Read data chunk 14 completed.
+[105.5 minutes]	Read data chunk 8 completed.
+[105.6 minutes]	Read data chunk 7 completed.
+[105.6 minutes]	Read data chunk 10 completed.
+[105.7 minutes]	Read data chunk 9 completed.
+[105.7 minutes]	Read data chunk 3 completed.
+[105.9 minutes]	Read data chunk 13 completed.
+[106.0 minutes]	Read data chunk 18 completed.
+[106.0 minutes]	Read data chunk 16 completed.
+[106.0 minutes]	Read data chunk 6 completed.
+[106.0 minutes]	Read data chunk 1 completed.
+[106.0 minutes]	Read data chunk 12 completed.
+[106.0 minutes]	Read data chunk 21 completed.
+[106.1 minutes]	Read data chunk 4 completed.
+[106.1 minutes]	Read data chunk 30 completed.
+[106.1 minutes]	Read data chunk 5 completed.
+[106.1 minutes]	Read data chunk 19 completed.
+[106.1 minutes]	Read data chunk 24 completed.
+[106.2 minutes]	Read data chunk 15 completed.
+[106.2 minutes]	Read data chunk 2 completed.
+[106.2 minutes]	Read data chunk 25 completed.
+[106.4 minutes]	Read data chunk 22 completed.
+[106.4 minutes]	Read data chunk 27 completed.
+[106.5 minutes]	Read data chunk 17 completed.
+[106.6 minutes]	Read data chunk 23 completed.
+[106.6 minutes]	Read data chunk 20 completed.
+[106.6 minutes]	Read data chunk 26 completed.
+[106.7 minutes]	Read data chunk 29 completed.
+[106.8 minutes]	Read data chunk 28 completed.
+[20.6 minutes]	Collating read pairs which were removed because the break read aligned to the vector.
+[20.6 minutes]	Starting refGenome alignments.
+[22.1 minutes]	Starting breakReads alignments
+[30.9 minutes]	Starting virusReads alignments
+[38.0 minutes]	RefGenome alignments completed.
+[39.1 minutes]	Starting to create fragments from alignment data.
+[39.3 minutes]	Initial fragment generation completed.
+[39.4 minutes]	Removing read pairs which share random linker IDs between samples.
+[39.7 minutes]	Removed 2.41% of fragment reads because one or more other reads shared the same random linker sequence.
+[40.3 minutes]	Standardized site positions for pH19: TRUE
+[40.3 minutes]	Standardized site positions for pHO2: TRUE
+[40.5 minutes]	Standardized site positions for pLinus: TRUE
+[40.5 minutes]	Standardized site positions for pJ60: FALSE
+[40.7 minutes]	Standardized site positions for pM12: TRUE
+[40.7 minutes]	Standardized site positions for pM06: FALSE
+[40.8 minutes]	Standardized site positions for pM50: TRUE
+[40.9 minutes]	Standardized site positions for pM66: TRUE
+[41.0 minutes]	Standardized break point positions for pH19~GTSP2169~1: TRUE
+[41.0 minutes]	Standardized break point positions for pHO2~GTSP2178~1: TRUE
+[41.0 minutes]	Standardized break point positions for pH19~GTSP2170~1: TRUE
+[41.0 minutes]	Standardized break point positions for pJ60~GTSP2174~1: TRUE
+[41.0 minutes]	Standardized break point positions for pH19~GTSP2171~1: TRUE
+[41.1 minutes]	Standardized break point positions for pLinus~GTSP2167~1: TRUE
+[41.1 minutes]	Standardized break point positions for pJ60~GTSP2173~1: TRUE
+[41.1 minutes]	Standardized break point positions for pM06~GTSP2176~1: TRUE
+[41.1 minutes]	Standardized break point positions for pLinus~GTSP2166~1: TRUE
+[41.1 minutes]	Standardized break point positions for pJ60~GTSP2172~1: TRUE
+[41.1 minutes]	Standardized break point positions for pM12~GTSP2179~1: TRUE
+[41.1 minutes]	Standardized break point positions for pLinus~GTSP2168~1: TRUE
+[41.2 minutes]	Standardized break point positions for pM06~GTSP2175~1: TRUE
+[41.2 minutes]	Standardized break point positions for pM50~GTSP2162~1: TRUE
+[41.2 minutes]	Standardized break point positions for pM06~GTSP2177~1: TRUE
+[41.2 minutes]	Standardized break point positions for pM50~GTSP2160~1: TRUE
+[41.2 minutes]	Standardized break point positions for pM66~GTSP2165~1: TRUE
+[41.2 minutes]	Standardized break point positions for pM50~GTSP2161~1: TRUE
+[41.2 minutes]	Standardized break point positions for pM66~GTSP2163~1: TRUE
+[41.2 minutes]	Standardized break point positions for pM66~GTSP2164~1: TRUE
+[57.9 minutes]	done.

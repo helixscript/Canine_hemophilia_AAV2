@@ -1,0 +1,34 @@
+vector,start,end,feature, color
+SC,1,180,5' ITR,E5EBFF
+SC,181,186,pre-promoter spacer,FFF1BD
+SC,187,712,promoter,BFC3E2
+SC,713,720,pre-transgene spacer,EDD78D
+SC,721,5108,transgene,999CC5
+SC,5109,5242,polyA,7375A8
+SC,5243,5248,pre-3' ITR spacer,DBBD5E
+SC,5249,5429,3' ITR,4D4E8B
+SC,5430,9062,backbone,27276E
+LC,1,173,5' ITR,E5EBFF
+LC,174,413,pre-promoter spacer,FFBDCF
+LC,414,891,promoter,BFC3E2
+LC,892,917,pre-intron spacer,ED8DA2
+LC,918,1050,intron,999CC5
+LC,1051,1410,pre-LC spacer,DB5E76
+LC,1411,3483,transgene,7375A8
+LC,3484,3497,pre-polyA spacer,C92F4A
+LC,3498,3735,polyA,4D4E8B
+LC,3736,3755,pre-3' ITR spacer,B8001E
+LC,3756,3929,3' ITR,27276E
+LC,3930,6435,backbone,020052
+HC,1,173,5' ITR,A0FF99
+HC,174,413,pre-promoter spacer,FFF1BD
+HC,414,891,promoter,85DD7F
+HC,892,917,pre-intron spacer,EDD78D
+HC,918,1050,intron,6BBB66
+HC,1051,1101,pre-HC spacer,DBBD5E
+HC,1102,3375,transgene,51994C
+HC,3376,3635,pre-polyA spacer,C9A32F
+HC,3636,3873,polyA,377733
+HC,3874,3893,pre-3' ITR spacer,B88A00
+HC,3894,4067,3' ITR,1D5519
+HC,4068,6573,backbone,033300
