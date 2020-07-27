@@ -8,6 +8,9 @@ library(ShortRead)
 library(BSgenome)
 library(BSgenome.Cfamiliaris.UCSC.canFam3)
 library(scales)
+options(stringsAsFactors = FALSE)
+
+# chr16+14665948
 
 Rscript_path <- '/home/opt/R-3.4.0/bin/Rscript'
 createColorPalette <- function(n) grDevices::colorRampPalette(RColorBrewer::brewer.pal(12, "Paired"))(n)
@@ -131,6 +134,11 @@ expIntSites.noF8.percentInTU     <- n_distinct(expIntSites.noF8.inTU$posid) / n_
 expIntSites.noF8.inTU.percentInOnco <- n_distinct(expIntSites.noF8.inTU.inOncogene$posid) / n_distinct(expIntSites.noF8.inTU$posid)
 expIntSites.noF8.percentNearOnco    <- n_distinct(expIntSites.noF8.nearOncogene$posid) / n_distinct(expIntSites.noF8$posid)
 expSitesInTU.inOnco  <- n_distinct(expIntSites.noF8.inTU.inOncogene$posid) / n_distinct(expIntSites.noF8.inTU$posid)
+
+
+
+#
+#----------------------
 
 
 # Same clones across samples
@@ -497,6 +505,326 @@ if(! file.exists('data/canFam3.randomSites_annotated.1.RData')) {
   randomSites_annotated <- randomSites_annotated[! duplicated(randomSites_annotated$posid),]
   rm(randomSites_annotated.1, randomSites_annotated.2, randomSites_annotated.3)
 }
+
+
+
+#
+#-------------------------------------------------
+getGenomeSeq <- function(seqnames, start, end){
+  tryCatch({
+    as.character(getSeq(BSgenome.Cfamiliaris.UCSC.canFam3, seqnames, start, end))
+  },
+  error = function(cond) {
+    return(NA)
+  })
+}
+
+
+alnCount <- function(a, b){
+  sum(unlist(strsplit(a, '')) == unlist(strsplit(b, '')))
+}
+
+if(! file.exists('data/CanFam3.randomSites_10mers.rds')){
+  cluster <- makeCluster(30)
+  clusterExport(cluster, c('getGenomeSeq'))
+
+  o <- randomSites_annotated$posid
+  r <- tibble(chr = unlist(lapply(str_split(o, '[\\-\\+]'), '[', 1)),
+              pos = as.integer(unlist(lapply(str_split(o, '[\\-\\+]'), '[', 2))))
+
+  r$s <- ntile(1:nrow(r), 30)
+  r <- bind_rows(parLapply(cluster, split(r, r$s), function(x){
+         library(dplyr)
+         library(BSgenome.Cfamiliaris.UCSC.canFam3)
+         bind_rows(lapply(split(x, 1:nrow(x)), function(x2){
+             x2$seq <- getGenomeSeq(x2$chr, x2$pos - 5, x2$pos+4)
+             x2
+         }))
+       }))
+  
+  saveRDS(r, file = 'data/CanFam3.randomSites_10mers.rds')
+}
+
+
+
+# Create a subset of the data where the ITR remnants are clean -- no additonal NTs and no duel detections.
+d <- expIntSites.noF8[expIntSites.noF8$ltrRepSeq == expIntSites.noF8$ltrRepSeq2 & expIntSites.noF8$strand != '*',]
+
+o <- tibble(posid = d$posid, 
+            chr = unlist(lapply(str_split(posid, '[\\-\\+]'), '[', 1)),
+            position = as.integer(unlist(lapply(str_split(posid, '[\\-\\+]'), '[', 2))),
+            strand = as.character(d$strand),
+            ITRremnant = d$ltrRepSeq,
+            ITRtestSeq = substr(ITRremnant, nchar(ITRremnant)-9, nchar(ITRremnant)))
+
+o <- bind_rows(lapply(split(o, 1:nrow(o)), function(x){
+       x$genomeSeq <- ifelse(x$strand == '+',
+                             getGenomeSeq(x$chr, x$position-10, x$position-1),   
+                             getGenomeSeq(x$chr, x$position+0, x$position+9))
+       
+       if(x$strand == '-') x$ITRtestSeq <- as.character(reverseComplement(DNAString(x$ITRtestSeq)))
+       x$alnScore <- alnCount(x$ITRtestSeq, x$genomeSeq)
+       x
+     }))
+
+
+randomTests <- do.call(rbind, lapply(1:1000, function(x){
+                 set.seed(x)
+                 table(factor(mapply(function(a, b){
+                   alnCount(a, b)
+                 }, o$ITRtestSeq, sample(r$seq, nrow(o)), SIMPLIFY = TRUE), levels = 0:10))
+               }))
+
+pVals <- unlist(lapply(1:1000, function(x){
+           set.seed(x)
+           a <- mapply(function(a, b){ alnCount(a, b) }, o$ITRtestSeq, sample(r$seq, nrow(o)), SIMPLIFY = TRUE)
+           wilcox.test(a, o$alnScore)$p.value
+}))
+
+
+d <- bind_rows(tibble(NTs = 0:10, n = round(apply(randomTests, 2, mean)), source = 'Random'),
+               tibble(NTs = 0:10, n = table(o$alnScore), source = 'ITR end'))
+
+ITRendAlnPlot <- 
+  ggplot(d, aes(factor(NTs), n, fill = source)) + 
+  scale_fill_manual(name = 'Source', values = c('gray25', 'gray75')) +
+  theme_bw()+
+  geom_col(position = 'dodge') +
+  labs(x = 'Aligned NTs', y = 'Sites') +
+  theme(text = element_text(size=16),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"))
+  
+
+
+
+
+
+
+
+d <- expIntSites.noF8[expIntSites.noF8$ltrRepSeq == expIntSites.noF8$ltrRepSeq2,]
+p <- subset(d, strand == '+')
+set.seed(10000)
+p$r <- sample_n(randomSites_annotated, nrow(p))$posid
+p <- bind_rows(lapply(split(p, 1:nrow(p)), function(x){
+  r <- unlist(strsplit(x$r, '[+-]'))
+  tibble(s  = '+',
+         p  = x$posid,
+         d  = x$subject,
+         u  = getGenomeSeq(x$seqnames, x$start-10, x$start-1),
+         l  = substr(x$ltrRepSeq, nchar(x$ltrRepSeq)-9, nchar(x$ltrRepSeq)),
+         r  = getGenomeSeq(r[1], as.integer(r[2]) - 5, as.integer(r[2])+4),
+         u_gc = str_count(u, '[GC]')/10,
+         r_gc = str_count(r, '[GC]')/10,
+         ls = alnCount(u, l), #   $Biostrings::pairwiseAlignment(u, l, gapOpening = 2, type = 'global-local')@score,
+         rs = alnCount(r, l)) # Biostrings::pairwiseAlignment(r, l, gapOpening = 2, type = 'global-local')@score)
+}))
+
+o <- bind_rows(tibble(a = p$ls, source = 'ITR'), tibble(a = p$rs, source = 'Random'))
+ggplot(o, aes(factor(a), fill = source)) + 
+scale_fill_manual(name = 'Source', values = c('gray25', 'gray75'))+
+theme_bw() +
+labs(x = 'Aligned NTs', y = 'Sites')+
+geom_histogram(position = 'dodge', stat='count')
+
+
+neg <- subset(d, strand == '-')
+
+
+#-----------------------------
+
+getGenomeSeq <- function(seqnames, start, end){
+  tryCatch({
+    as.character(getSeq(BSgenome.Cfamiliaris.UCSC.canFam3, seqnames, start, end))
+  },
+  error = function(cond) {
+    return(NA)
+  })
+}
+
+
+cluster <- makeCluster(5)
+clusterExport(cluster, c('getGenomeSeq'))
+d <- expIntSites.noF8[expIntSites.noF8$ltrRepSeq == expIntSites.noF8$ltrRepSeq2 & expIntSites.noF8$strand != '*',]
+
+o <- tibble(posid = d$posid, 
+            chr = unlist(lapply(str_split(posid, '[\\-\\+]'), '[', 1)),
+            position = as.integer(unlist(lapply(str_split(posid, '[\\-\\+]'), '[', 2))),
+            strand = d$strand,
+            ITRremnant = d$ltrRepSeq,
+            ITRtestSeq = substr(ITRremnant, nchar(ITRremnant)-9, nchar(ITRremnant)))
+
+
+# select random posistion ids and extract their chromosome names and positions so that we can 
+# extract random sequences from the genome.
+set.seed(10)
+o$randomPosid1 <-  sample_n(randomSites_annotated, nrow(o))$posid
+o$randomPosid2 <-  sample_n(randomSites_annotated, nrow(o))$posid
+
+r <- tibble(chr_random1 = unlist(lapply(str_split(o$randomPosid1, '[\\-\\+]'), '[', 1)),
+            position_random1 = as.integer(unlist(lapply(str_split(o$randomPosid1, '[\\-\\+]'), '[', 2))),
+            chr_random2 = unlist(lapply(str_split(o$randomPosid2, '[\\-\\+]'), '[', 1)),
+            position_random2 = as.integer(unlist(lapply(str_split(o$randomPosid2, '[\\-\\+]'), '[', 2))))
+
+x2 <- subset(o, strand == '-' & posid == 'chr9-154221')
+
+o <- bind_cols(o, r)
+o$strand <- as.character(o$strand)
+o <- bind_rows(parLapply(cluster, split(o, o$strand), function(x){
+#o <- bind_rows(lapply(split(o, as.character(o$strand)), function(x){
+       library(dplyr)
+       library(BSgenome.Cfamiliaris.UCSC.canFam3)
+      
+       bind_rows(lapply(split(x, 1:nrow(x)), function(x2){
+         #message('Start ', x2$strand, x2$posid)
+         x2$randomSeq1 <- getGenomeSeq(x2$chr_random1, x2$position_random1 - 5, x2$position_random1 + 4)
+         x2$randomSeq2 <- getGenomeSeq(x2$chr_random2, x2$position_random2 - 5, x2$position_random2 + 4)
+         x2 <- select(x2, -randomPosid1, -randomPosid2, -chr_random1, -position_random1, -chr_random2, -position_random2)
+         
+         if(x2$strand == '+'){
+           x2$genome_d3 <- getGenomeSeq(x2$chr, x2$position-13, x2$position-4)
+           x2$genome_d2 <- getGenomeSeq(x2$chr, x2$position-12, x2$position-3)
+           x2$genome_d1 <- getGenomeSeq(x2$chr, x2$position-11, x2$position-2)
+           x2$genome_0  <- getGenomeSeq(x2$chr, x2$position-10, x2$position-1)
+           x2$genome_u1 <- getGenomeSeq(x2$chr, x2$position-9, x2$position-0)
+           x2$genome_u2 <- getGenomeSeq(x2$chr, x2$position-8, x2$position+1)
+           x2$genome_u3 <- getGenomeSeq(x2$chr, x2$position-7, x2$position+2)
+         } else {
+           x2$genome_d3 <- getGenomeSeq(x2$chr, x2$position-2, x2$position+7)
+           x2$genome_d2 <- getGenomeSeq(x2$chr, x2$position-1, x2$position+8)
+           x2$genome_d1 <- getGenomeSeq(x2$chr, x2$position+0, x2$position+9)  # RC winner 
+           x2$genome_0  <- getGenomeSeq(x2$chr, x2$position+1, x2$position+10)
+           x2$genome_u1 <- getGenomeSeq(x2$chr, x2$position+2, x2$position+11)
+           x2$genome_u2 <- getGenomeSeq(x2$chr, x2$position+3, x2$position+12)
+           x2$genome_u3 <- getGenomeSeq(x2$chr, x2$position+4, x2$position+13)
+         }
+         
+         message('End ', x2$strand, x2$posid)
+         x2
+       }))
+    }))
+
+
+
+saveRDS(o, file = 'o.rds')
+
+clusterExport(cluster, c('o'))
+
+#r <- bind_rows(parLapply(cluster, c('none', 'reverse', 'complement', 'reverseComplement'), function(op){
+r <-  bind_rows(lapply(c('none', 'reverse', 'complement', 'reverseComplement'), function(op){ 
+       library(dplyr)
+       library(Biostrings)
+       bind_rows(lapply(split(o, 1:nrow(o)), function(x){
+          alnCount <- function(a, b) sum(unlist(strsplit(a, '')) == unlist(strsplit(b, '')))
+          x$op <- op
+           
+          if(x$op == 'none'){
+            x$ITRtestSeqAlign <- x$ITRtestSeq
+          } else if(x$op == 'reverse'){
+            x$ITRtestSeqAlign <- as.character(reverse(DNAString(x$ITRtestSeq)))
+          } else if(x$op == 'complement'){
+            x$ITRtestSeqAlign <- as.character(complement(DNAString(x$ITRtestSeq)))
+          } else if(x$op == 'reverseComplement'){
+            x$ITRtestSeqAlign <- as.character(reverseComplement(DNAString(x$ITRtestSeq)))
+          } else {
+            stop('Unknown op request.')
+          }
+          
+          x$genome_d3_alnScore  <- alnCount(x$ITRtestSeqAlign, x$genome_d3)
+          x$genome_d2_alnScore  <- alnCount(x$ITRtestSeqAlign, x$genome_d2)
+          x$genome_d1_alnScore  <- alnCount(x$ITRtestSeqAlign, x$genome_d1)
+          x$genome_0_alnScore   <- alnCount(x$ITRtestSeqAlign, x$genome_0)
+          x$genome_u1_alnScore  <- alnCount(x$ITRtestSeqAlign, x$genome_u1)
+          x$genome_u2_alnScore  <- alnCount(x$ITRtestSeqAlign, x$genome_u2)
+          x$genome_u3_alnScore  <- alnCount(x$ITRtestSeqAlign, x$genome_u3)
+          x$randomSeq1_alnScore <- alnCount(x$ITRtestSeqAlign, x$randomSeq1)
+          x$randomSeq2_alnScore <- alnCount(x$ITRtestSeqAlign, x$randomSeq2)
+          x
+       }))
+}))
+
+
+a <- bind_rows(lapply(split(r, paste(r$strand, r$op)), function(x){
+       tibble(strand = x$strand[1], op = x$op[1], 
+              random1.genome_d3 = wilcox.test(x$randomSeq1_alnScore, x$genome_d3_alnScore)$p.value,
+              random1.genome_d2 = wilcox.test(x$randomSeq1_alnScore, x$genome_d2_alnScore)$p.value,
+              random1.genome_d1 = wilcox.test(x$randomSeq1_alnScore, x$genome_d1_alnScore)$p.value,
+              random1.genome_0  = wilcox.test(x$randomSeq1_alnScore, x$genome_0_alnScore)$p.value,
+              random1.genome_u1 = wilcox.test(x$randomSeq1_alnScore, x$genome_u1_alnScore)$p.value,
+              random1.genome_u2 = wilcox.test(x$randomSeq1_alnScore, x$genome_u2_alnScore)$p.value,
+              random1.genome_u3 = wilcox.test(x$randomSeq1_alnScore, x$genome_u3_alnScore)$p.value,
+              random2.genome_d3 = wilcox.test(x$randomSeq2_alnScore, x$genome_d3_alnScore)$p.value,
+              random2.genome_d2 = wilcox.test(x$randomSeq2_alnScore, x$genome_d2_alnScore)$p.value,
+              random2.genome_d1 = wilcox.test(x$randomSeq2_alnScore, x$genome_d1_alnScore)$p.value,
+              random2.genome_0  = wilcox.test(x$randomSeq2_alnScore, x$genome_0_alnScore)$p.value,
+              random2.genome_u1 = wilcox.test(x$randomSeq2_alnScore, x$genome_u1_alnScore)$p.value,
+              random2.genome_u2 = wilcox.test(x$randomSeq2_alnScore, x$genome_u2_alnScore)$p.value,
+              random2.genome_u3 = wilcox.test(x$randomSeq2_alnScore, x$genome_u3_alnScore)$p.value)
+     }))
+
+
+
+
+
+
+
+               genomeSeq = ifelse(strand == '+', 
+                                  getGenomeSeq(chr, position-10, position-1), 
+                                  getGenomeSeq(chr, position+1,  position+10)))
+
+
+
+o <- str_split(opts$posid, '[\\-\\+]')
+opts$seqname <- unlist(lapply(o, '[[', 1))
+opts$pos <- as.integer(unlist(lapply(o, '[[', 2)))
+               
+               
+
+
+set.seed(200)
+neg$r <- sample_n(randomSites_annotated, nrow(neg))$posid
+neg <- bind_rows(lapply(split(neg, 1:nrow(neg)), function(x){
+  r <- unlist(strsplit(x$r, '[+-]'))
+  #browser()
+  tibble(s  = '-',
+         p  = x$posid,
+         d  = x$subject,
+         u  = as.character((DNAString(getGenomeSeq(x$seqnames, x$start+1, x$start+10)))),
+         l  = as.character(reverse(DNAString(substr(x$ltrRepSeq, nchar(x$ltrRepSeq)-9, nchar(x$ltrRepSeq))))),
+         r  = getGenomeSeq(r[1], as.integer(r[2]) - 5, as.integer(r[2])+4),
+         u_gc = str_count(u, '[GC]')/10,
+         r_gc = str_count(r, '[GC]')/10,
+         ls = alnCount(u, l), 
+         rs = alnCount(r, l)) 
+}))
+
+o <- bind_rows(tibble(a = neg$ls, source = 'ITR'), tibble(a =neg$rs, source = 'Random'))
+ggplot(o, aes(factor(a), fill = source)) + 
+  scale_fill_manual(name = 'Source', values = c('gray25', 'gray75'))+
+  theme_bw() +
+  labs(x = 'Aligned NTs', y = 'Sites')+
+  geom_histogram(position = 'dodge', stat='count')
+
+
+# no changes
+# RC u
+# RC l should work
+# Rev u
+# Rev l
+# comp u 
+# comp l  
+# comp u RC l
+# RC u comp l
+# comp u Rev l
+# comp u RC l
+
+# 
+
+
+
+
+
+
 
 
 
@@ -1352,8 +1680,8 @@ representativeSeq <- function(s){
 }
 
 # Determine the sequences and numbers of additional NTs.
-intSites <- rowwise(intSites) %>%
-            mutate(LTRseqAdditionNTs = substr(LTRseq2sRep, nchar(LTRseqsRep) + 1, nchar(LTRseq2sRep)),
+o <- rowwise(expIntSites) %>%
+            mutate(LTRseqAdditionNTs = substr(ltrRepSeq2, nchar(ltrRepSeq) + 1, nchar(ltrRepSeq2)),
                    nLTRseqAdditionNTs = nchar(LTRseqAdditionNTs)) %>%
             ungroup()
 

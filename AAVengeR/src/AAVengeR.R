@@ -664,6 +664,7 @@ if(config$virusReads.captureLTRseqs){
   clusterExport(cluster, c('config'))
   frags$s <- ntile(1:nrow(frags), config$demultiplexing.CPUs)
   
+  # JKE
   frags <- bind_rows(parLapply(cluster, split(frags, frags$s), function(a){
               library(dplyr)
               source(file.path(config$softwareDir, 'AAVengeR.lib.R'))
@@ -705,6 +706,7 @@ if(config$virusReads.captureLTRseqs){
   sites <- bind_rows(lapply(split(frags, paste(frags$subject, frags$sample, frags$posid, frags$posIDcluster)), function(x){
 
     if(nrow(x) > 1){
+      #if(x$start[1] == 13258054 & x$seqnames[1] == 'chr28') browser()
       i <- rep(TRUE, nrow(x))
       r2 <- representativeSeq(x$ltrRepSeq2)
       

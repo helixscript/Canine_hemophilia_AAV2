@@ -1,0 +1,226 @@
+[86.5 minutes]	Chunk 1: (pM50~GTSP2160~1) 203003 reads pass barcode filter.
+[86.5 minutes]	Chunk 1: (pM50~GTSP2160~1) 11870 reads pass linker code filter.
+[86.5 minutes]	Chunk 1: (pM50~GTSP2160~1) 11697 reads pass all demultiplexing filters.
+[86.6 minutes]	Chunk 1: (pM50~GTSP2160~1) 58 reads aligned to the vector and will be removed.
+[86.6 minutes]	Chunk 1: (pM50~GTSP2160~1) 11671 reads remain after removing vector aligned reads and synchronizing.
+[86.6 minutes]	Chunk 1: (pM50~GTSP2160~1) 662 reads removed by virus read start test filter (10 NTs).
+[86.6 minutes]	Chunk 1: (pM50~GTSP2160~1) 662 reads removed after all filters.
+[87.0 minutes]	Chunk 1: (pM50~GTSP2160~1) 2 reads remaining after LTR/ITR capture.
+[87.0 minutes]	Chunk 1: (pM50~GTSP2160~1) captured random linker ids.
+[87.0 minutes]	Chunk 1: (6001) reads remaining after read length filters.
+[87.0 minutes]	Chunk 1: (pM50~GTSP2160~1) completed with 6001 reads.
+[87.4 minutes]	Chunk 1: (pM50~GTSP2161~1) 203003 reads pass barcode filter.
+[87.4 minutes]	Chunk 1: (pM50~GTSP2161~1) 8918 reads pass linker code filter.
+[87.4 minutes]	Chunk 1: (pM50~GTSP2161~1) 8779 reads pass all demultiplexing filters.
+[87.5 minutes]	Chunk 1: (pM50~GTSP2161~1) 87 reads aligned to the vector and will be removed.
+[87.5 minutes]	Chunk 1: (pM50~GTSP2161~1) 8742 reads remain after removing vector aligned reads and synchronizing.
+[87.5 minutes]	Chunk 1: (pM50~GTSP2161~1) 504 reads removed by virus read start test filter (10 NTs).
+[87.5 minutes]	Chunk 1: (pM50~GTSP2161~1) 504 reads removed after all filters.
+[87.9 minutes]	Chunk 1: (pM50~GTSP2161~1) 2 reads remaining after LTR/ITR capture.
+[87.9 minutes]	Chunk 1: (pM50~GTSP2161~1) captured random linker ids.
+[87.9 minutes]	Chunk 1: (4247) reads remaining after read length filters.
+[87.9 minutes]	Chunk 1: (pM50~GTSP2161~1) completed with 4247 reads.
+[88.3 minutes]	Chunk 1: (pM50~GTSP2162~1) 203003 reads pass barcode filter.
+[88.3 minutes]	Chunk 1: (pM50~GTSP2162~1) 8941 reads pass linker code filter.
+[88.3 minutes]	Chunk 1: (pM50~GTSP2162~1) 8803 reads pass all demultiplexing filters.
+[88.5 minutes]	Chunk 1: (pM50~GTSP2162~1) 170 reads aligned to the vector and will be removed.
+[88.5 minutes]	Chunk 1: (pM50~GTSP2162~1) 8739 reads remain after removing vector aligned reads and synchronizing.
+[88.5 minutes]	Chunk 1: (pM50~GTSP2162~1) 514 reads removed by virus read start test filter (10 NTs).
+[88.5 minutes]	Chunk 1: (pM50~GTSP2162~1) 514 reads removed after all filters.
+[88.8 minutes]	Chunk 1: (pM50~GTSP2162~1) 2 reads remaining after LTR/ITR capture.
+[88.8 minutes]	Chunk 1: (pM50~GTSP2162~1) captured random linker ids.
+[88.8 minutes]	Chunk 1: (5324) reads remaining after read length filters.
+[88.8 minutes]	Chunk 1: (pM50~GTSP2162~1) completed with 5324 reads.
+[89.2 minutes]	Chunk 1: (pM66~GTSP2163~1) 203003 reads pass barcode filter.
+[89.2 minutes]	Chunk 1: (pM66~GTSP2163~1) 6338 reads pass linker code filter.
+[89.2 minutes]	Chunk 1: (pM66~GTSP2163~1) 6244 reads pass all demultiplexing filters.
+[89.3 minutes]	Chunk 1: (pM66~GTSP2163~1) 28 reads aligned to the vector and will be removed.
+[89.3 minutes]	Chunk 1: (pM66~GTSP2163~1) 6230 reads remain after removing vector aligned reads and synchronizing.
+[89.3 minutes]	Chunk 1: (pM66~GTSP2163~1) 292 reads removed by virus read start test filter (10 NTs).
+[89.3 minutes]	Chunk 1: (pM66~GTSP2163~1) 292 reads removed after all filters.
+[89.5 minutes]	Chunk 1: (pM66~GTSP2163~1) 2 reads remaining after LTR/ITR capture.
+[89.5 minutes]	Chunk 1: (pM66~GTSP2163~1) captured random linker ids.
+[89.5 minutes]	Chunk 1: (2976) reads remaining after read length filters.
+[89.5 minutes]	Chunk 1: (pM66~GTSP2163~1) completed with 2976 reads.
+[90.0 minutes]	Chunk 1: (pM66~GTSP2164~1) 203003 reads pass barcode filter.
+[90.0 minutes]	Chunk 1: (pM66~GTSP2164~1) 11285 reads pass linker code filter.
+[90.0 minutes]	Chunk 1: (pM66~GTSP2164~1) 11111 reads pass all demultiplexing filters.
+[90.1 minutes]	Chunk 1: (pM66~GTSP2164~1) 37 reads aligned to the vector and will be removed.
+[90.1 minutes]	Chunk 1: (pM66~GTSP2164~1) 11098 reads remain after removing vector aligned reads and synchronizing.
+[90.1 minutes]	Chunk 1: (pM66~GTSP2164~1) 311 reads removed by virus read start test filter (10 NTs).
+[90.1 minutes]	Chunk 1: (pM66~GTSP2164~1) 311 reads removed after all filters.
+[90.4 minutes]	Chunk 1: (pM66~GTSP2164~1) 2 reads remaining after LTR/ITR capture.
+[90.4 minutes]	Chunk 1: (pM66~GTSP2164~1) captured random linker ids.
+[90.4 minutes]	Chunk 1: (3812) reads remaining after read length filters.
+[90.4 minutes]	Chunk 1: (pM66~GTSP2164~1) completed with 3812 reads.
+[90.9 minutes]	Chunk 1: (pM66~GTSP2165~1) 203003 reads pass barcode filter.
+[90.9 minutes]	Chunk 1: (pM66~GTSP2165~1) 4468 reads pass linker code filter.
+[90.9 minutes]	Chunk 1: (pM66~GTSP2165~1) 4395 reads pass all demultiplexing filters.
+[91.0 minutes]	Chunk 1: (pM66~GTSP2165~1) 66 reads aligned to the vector and will be removed.
+[91.0 minutes]	Chunk 1: (pM66~GTSP2165~1) 4367 reads remain after removing vector aligned reads and synchronizing.
+[91.0 minutes]	Chunk 1: (pM66~GTSP2165~1) 260 reads removed by virus read start test filter (10 NTs).
+[91.0 minutes]	Chunk 1: (pM66~GTSP2165~1) 260 reads removed after all filters.
+[91.1 minutes]	Chunk 1: (pM66~GTSP2165~1) 2 reads remaining after LTR/ITR capture.
+[91.1 minutes]	Chunk 1: (pM66~GTSP2165~1) captured random linker ids.
+[91.1 minutes]	Chunk 1: (2405) reads remaining after read length filters.
+[91.1 minutes]	Chunk 1: (pM66~GTSP2165~1) completed with 2405 reads.
+[91.6 minutes]	Chunk 1: (pLinus~GTSP2166~1) 203003 reads pass barcode filter.
+[91.6 minutes]	Chunk 1: (pLinus~GTSP2166~1) 13758 reads pass linker code filter.
+[91.7 minutes]	Chunk 1: (pLinus~GTSP2166~1) 13614 reads pass all demultiplexing filters.
+[91.8 minutes]	Chunk 1: (pLinus~GTSP2166~1) 5 reads aligned to the vector and will be removed.
+[91.8 minutes]	Chunk 1: (pLinus~GTSP2166~1) 13611 reads remain after removing vector aligned reads and synchronizing.
+[91.8 minutes]	Chunk 1: (pLinus~GTSP2166~1) 559 reads removed by virus read start test filter (10 NTs).
+[91.8 minutes]	Chunk 1: (pLinus~GTSP2166~1) 559 reads removed after all filters.
+[92.1 minutes]	Chunk 1: (pLinus~GTSP2166~1) 2 reads remaining after LTR/ITR capture.
+[92.1 minutes]	Chunk 1: (pLinus~GTSP2166~1) captured random linker ids.
+[92.1 minutes]	Chunk 1: (7169) reads remaining after read length filters.
+[92.1 minutes]	Chunk 1: (pLinus~GTSP2166~1) completed with 7169 reads.
+[92.6 minutes]	Chunk 1: (pLinus~GTSP2167~1) 203003 reads pass barcode filter.
+[92.6 minutes]	Chunk 1: (pLinus~GTSP2167~1) 11758 reads pass linker code filter.
+[92.6 minutes]	Chunk 1: (pLinus~GTSP2167~1) 11622 reads pass all demultiplexing filters.
+[92.7 minutes]	Chunk 1: (pLinus~GTSP2167~1) 0 reads aligned to the vector and will be removed.
+[92.7 minutes]	Chunk 1: (pLinus~GTSP2167~1) 11622 reads remain after removing vector aligned reads and synchronizing.
+[92.7 minutes]	Chunk 1: (pLinus~GTSP2167~1) 659 reads removed by virus read start test filter (10 NTs).
+[92.7 minutes]	Chunk 1: (pLinus~GTSP2167~1) 659 reads removed after all filters.
+[93.0 minutes]	Chunk 1: (pLinus~GTSP2167~1) 2 reads remaining after LTR/ITR capture.
+[93.0 minutes]	Chunk 1: (pLinus~GTSP2167~1) captured random linker ids.
+[93.1 minutes]	Chunk 1: (7827) reads remaining after read length filters.
+[93.1 minutes]	Chunk 1: (pLinus~GTSP2167~1) completed with 7827 reads.
+[93.5 minutes]	Chunk 1: (pLinus~GTSP2168~1) 203003 reads pass barcode filter.
+[93.5 minutes]	Chunk 1: (pLinus~GTSP2168~1) 10460 reads pass linker code filter.
+[93.5 minutes]	Chunk 1: (pLinus~GTSP2168~1) 10333 reads pass all demultiplexing filters.
+[93.6 minutes]	Chunk 1: (pLinus~GTSP2168~1) 1 reads aligned to the vector and will be removed.
+[93.6 minutes]	Chunk 1: (pLinus~GTSP2168~1) 10332 reads remain after removing vector aligned reads and synchronizing.
+[93.6 minutes]	Chunk 1: (pLinus~GTSP2168~1) 554 reads removed by virus read start test filter (10 NTs).
+[93.6 minutes]	Chunk 1: (pLinus~GTSP2168~1) 554 reads removed after all filters.
+[93.9 minutes]	Chunk 1: (pLinus~GTSP2168~1) 2 reads remaining after LTR/ITR capture.
+[93.9 minutes]	Chunk 1: (pLinus~GTSP2168~1) captured random linker ids.
+[93.9 minutes]	Chunk 1: (5376) reads remaining after read length filters.
+[93.9 minutes]	Chunk 1: (pLinus~GTSP2168~1) completed with 5376 reads.
+[94.4 minutes]	Chunk 1: (NTC~NTC1~1) 203003 reads pass barcode filter.
+[94.4 minutes]	Chunk 1: (NTC~NTC1~1) 0 reads pass linker code filter.
+[94.4 minutes]	Chunk 1: (NTC~NTC1~1) No reads demultiplexed.
+[94.8 minutes]	Chunk 1: (pH19~GTSP2169~1) 203003 reads pass barcode filter.
+[94.9 minutes]	Chunk 1: (pH19~GTSP2169~1) 5785 reads pass linker code filter.
+[94.9 minutes]	Chunk 1: (pH19~GTSP2169~1) 5702 reads pass all demultiplexing filters.
+[94.9 minutes]	Chunk 1: (pH19~GTSP2169~1) 29 reads aligned to the vector and will be removed.
+[94.9 minutes]	Chunk 1: (pH19~GTSP2169~1) 5688 reads remain after removing vector aligned reads and synchronizing.
+[94.9 minutes]	Chunk 1: (pH19~GTSP2169~1) 364 reads removed by virus read start test filter (10 NTs).
+[94.9 minutes]	Chunk 1: (pH19~GTSP2169~1) 364 reads removed after all filters.
+[95.1 minutes]	Chunk 1: (pH19~GTSP2169~1) 2 reads remaining after LTR/ITR capture.
+[95.1 minutes]	Chunk 1: (pH19~GTSP2169~1) captured random linker ids.
+[95.1 minutes]	Chunk 1: (2877) reads remaining after read length filters.
+[95.1 minutes]	Chunk 1: (pH19~GTSP2169~1) completed with 2877 reads.
+[95.6 minutes]	Chunk 1: (pH19~GTSP2170~1) 203003 reads pass barcode filter.
+[95.6 minutes]	Chunk 1: (pH19~GTSP2170~1) 6367 reads pass linker code filter.
+[95.6 minutes]	Chunk 1: (pH19~GTSP2170~1) 6291 reads pass all demultiplexing filters.
+[95.7 minutes]	Chunk 1: (pH19~GTSP2170~1) 36 reads aligned to the vector and will be removed.
+[95.7 minutes]	Chunk 1: (pH19~GTSP2170~1) 6273 reads remain after removing vector aligned reads and synchronizing.
+[95.7 minutes]	Chunk 1: (pH19~GTSP2170~1) 293 reads removed by virus read start test filter (10 NTs).
+[95.7 minutes]	Chunk 1: (pH19~GTSP2170~1) 293 reads removed after all filters.
+[95.8 minutes]	Chunk 1: (pH19~GTSP2170~1) 2 reads remaining after LTR/ITR capture.
+[95.8 minutes]	Chunk 1: (pH19~GTSP2170~1) captured random linker ids.
+[95.8 minutes]	Chunk 1: (3653) reads remaining after read length filters.
+[95.8 minutes]	Chunk 1: (pH19~GTSP2170~1) completed with 3653 reads.
+[96.3 minutes]	Chunk 1: (pH19~GTSP2171~1) 203003 reads pass barcode filter.
+[96.3 minutes]	Chunk 1: (pH19~GTSP2171~1) 51 reads pass linker code filter.
+[96.3 minutes]	Chunk 1: (pH19~GTSP2171~1) 50 reads pass all demultiplexing filters.
+[96.3 minutes]	Chunk 1: (pH19~GTSP2171~1) 0 reads aligned to the vector and will be removed.
+[96.3 minutes]	Chunk 1: (pH19~GTSP2171~1) 50 reads remain after removing vector aligned reads and synchronizing.
+[96.3 minutes]	Chunk 1: (pH19~GTSP2171~1) 1 reads removed by virus read start test filter (10 NTs).
+[96.3 minutes]	Chunk 1: (pH19~GTSP2171~1) 1 reads removed after all filters.
+[96.3 minutes]	Chunk 1: (pH19~GTSP2171~1) 2 reads remaining after LTR/ITR capture.
+[96.3 minutes]	Chunk 1: (pH19~GTSP2171~1) captured random linker ids.
+[96.3 minutes]	Chunk 1: (36) reads remaining after read length filters.
+[96.3 minutes]	Chunk 1: (pH19~GTSP2171~1) completed with 36 reads.
+[96.8 minutes]	Chunk 1: (pJ60~GTSP2172~1) 203003 reads pass barcode filter.
+[96.8 minutes]	Chunk 1: (pJ60~GTSP2172~1) 15289 reads pass linker code filter.
+[96.8 minutes]	Chunk 1: (pJ60~GTSP2172~1) 15066 reads pass all demultiplexing filters.
+[97.0 minutes]	Chunk 1: (pJ60~GTSP2172~1) 87 reads aligned to the vector and will be removed.
+[97.0 minutes]	Chunk 1: (pJ60~GTSP2172~1) 15037 reads remain after removing vector aligned reads and synchronizing.
+[97.0 minutes]	Chunk 1: (pJ60~GTSP2172~1) 737 reads removed by virus read start test filter (10 NTs).
+[97.0 minutes]	Chunk 1: (pJ60~GTSP2172~1) 737 reads removed after all filters.
+[97.7 minutes]	Chunk 1: (pJ60~GTSP2172~1) 2 reads remaining after LTR/ITR capture.
+[97.7 minutes]	Chunk 1: (pJ60~GTSP2172~1) captured random linker ids.
+[97.7 minutes]	Chunk 1: (8214) reads remaining after read length filters.
+[97.7 minutes]	Chunk 1: (pJ60~GTSP2172~1) completed with 8214 reads.
+[98.1 minutes]	Chunk 1: (pJ60~GTSP2173~1) 203003 reads pass barcode filter.
+[98.2 minutes]	Chunk 1: (pJ60~GTSP2173~1) 14932 reads pass linker code filter.
+[98.2 minutes]	Chunk 1: (pJ60~GTSP2173~1) 14736 reads pass all demultiplexing filters.
+[98.3 minutes]	Chunk 1: (pJ60~GTSP2173~1) 107 reads aligned to the vector and will be removed.
+[98.3 minutes]	Chunk 1: (pJ60~GTSP2173~1) 14700 reads remain after removing vector aligned reads and synchronizing.
+[98.3 minutes]	Chunk 1: (pJ60~GTSP2173~1) 729 reads removed by virus read start test filter (10 NTs).
+[98.3 minutes]	Chunk 1: (pJ60~GTSP2173~1) 729 reads removed after all filters.
+[98.8 minutes]	Chunk 1: (pJ60~GTSP2173~1) 2 reads remaining after LTR/ITR capture.
+[98.9 minutes]	Chunk 1: (pJ60~GTSP2173~1) captured random linker ids.
+[98.9 minutes]	Chunk 1: (8343) reads remaining after read length filters.
+[98.9 minutes]	Chunk 1: (pJ60~GTSP2173~1) completed with 8343 reads.
+[99.3 minutes]	Chunk 1: (pJ60~GTSP2174~1) 203003 reads pass barcode filter.
+[99.3 minutes]	Chunk 1: (pJ60~GTSP2174~1) 13191 reads pass linker code filter.
+[99.3 minutes]	Chunk 1: (pJ60~GTSP2174~1) 13007 reads pass all demultiplexing filters.
+[99.5 minutes]	Chunk 1: (pJ60~GTSP2174~1) 42 reads aligned to the vector and will be removed.
+[99.5 minutes]	Chunk 1: (pJ60~GTSP2174~1) 12991 reads remain after removing vector aligned reads and synchronizing.
+[99.5 minutes]	Chunk 1: (pJ60~GTSP2174~1) 582 reads removed by virus read start test filter (10 NTs).
+[99.5 minutes]	Chunk 1: (pJ60~GTSP2174~1) 582 reads removed after all filters.
+[99.8 minutes]	Chunk 1: (pJ60~GTSP2174~1) 2 reads remaining after LTR/ITR capture.
+[99.8 minutes]	Chunk 1: (pJ60~GTSP2174~1) captured random linker ids.
+[99.8 minutes]	Chunk 1: (6284) reads remaining after read length filters.
+[99.8 minutes]	Chunk 1: (pJ60~GTSP2174~1) completed with 6284 reads.
+[100.3 minutes]	Chunk 1: (pM06~GTSP2175~1) 203003 reads pass barcode filter.
+[100.3 minutes]	Chunk 1: (pM06~GTSP2175~1) 12165 reads pass linker code filter.
+[100.3 minutes]	Chunk 1: (pM06~GTSP2175~1) 11950 reads pass all demultiplexing filters.
+[100.5 minutes]	Chunk 1: (pM06~GTSP2175~1) 100 reads aligned to the vector and will be removed.
+[100.5 minutes]	Chunk 1: (pM06~GTSP2175~1) 11906 reads remain after removing vector aligned reads and synchronizing.
+[100.5 minutes]	Chunk 1: (pM06~GTSP2175~1) 653 reads removed by virus read start test filter (10 NTs).
+[100.5 minutes]	Chunk 1: (pM06~GTSP2175~1) 653 reads removed after all filters.
+[100.9 minutes]	Chunk 1: (pM06~GTSP2175~1) 2 reads remaining after LTR/ITR capture.
+[100.9 minutes]	Chunk 1: (pM06~GTSP2175~1) captured random linker ids.
+[100.9 minutes]	Chunk 1: (4554) reads remaining after read length filters.
+[100.9 minutes]	Chunk 1: (pM06~GTSP2175~1) completed with 4554 reads.
+[101.4 minutes]	Chunk 1: (pM06~GTSP2176~1) 203003 reads pass barcode filter.
+[101.4 minutes]	Chunk 1: (pM06~GTSP2176~1) 15886 reads pass linker code filter.
+[101.4 minutes]	Chunk 1: (pM06~GTSP2176~1) 15601 reads pass all demultiplexing filters.
+[101.5 minutes]	Chunk 1: (pM06~GTSP2176~1) 193 reads aligned to the vector and will be removed.
+[101.6 minutes]	Chunk 1: (pM06~GTSP2176~1) 15524 reads remain after removing vector aligned reads and synchronizing.
+[101.6 minutes]	Chunk 1: (pM06~GTSP2176~1) 710 reads removed by virus read start test filter (10 NTs).
+[101.6 minutes]	Chunk 1: (pM06~GTSP2176~1) 710 reads removed after all filters.
+[102.1 minutes]	Chunk 1: (pM06~GTSP2176~1) 2 reads remaining after LTR/ITR capture.
+[102.1 minutes]	Chunk 1: (pM06~GTSP2176~1) captured random linker ids.
+[102.1 minutes]	Chunk 1: (6004) reads remaining after read length filters.
+[102.1 minutes]	Chunk 1: (pM06~GTSP2176~1) completed with 6004 reads.
+[102.5 minutes]	Chunk 1: (pM06~GTSP2177~1) 203003 reads pass barcode filter.
+[102.5 minutes]	Chunk 1: (pM06~GTSP2177~1) 11858 reads pass linker code filter.
+[102.6 minutes]	Chunk 1: (pM06~GTSP2177~1) 11683 reads pass all demultiplexing filters.
+[102.7 minutes]	Chunk 1: (pM06~GTSP2177~1) 149 reads aligned to the vector and will be removed.
+[102.7 minutes]	Chunk 1: (pM06~GTSP2177~1) 11622 reads remain after removing vector aligned reads and synchronizing.
+[102.7 minutes]	Chunk 1: (pM06~GTSP2177~1) 431 reads removed by virus read start test filter (10 NTs).
+[102.7 minutes]	Chunk 1: (pM06~GTSP2177~1) 431 reads removed after all filters.
+[103.1 minutes]	Chunk 1: (pM06~GTSP2177~1) 2 reads remaining after LTR/ITR capture.
+[103.1 minutes]	Chunk 1: (pM06~GTSP2177~1) captured random linker ids.
+[103.2 minutes]	Chunk 1: (4794) reads remaining after read length filters.
+[103.2 minutes]	Chunk 1: (pM06~GTSP2177~1) completed with 4794 reads.
+[103.6 minutes]	Chunk 1: (pHO2~GTSP2178~1) 203003 reads pass barcode filter.
+[103.6 minutes]	Chunk 1: (pHO2~GTSP2178~1) 9945 reads pass linker code filter.
+[103.7 minutes]	Chunk 1: (pHO2~GTSP2178~1) 9783 reads pass all demultiplexing filters.
+[103.8 minutes]	Chunk 1: (pHO2~GTSP2178~1) 6 reads aligned to the vector and will be removed.
+[103.8 minutes]	Chunk 1: (pHO2~GTSP2178~1) 9781 reads remain after removing vector aligned reads and synchronizing.
+[103.8 minutes]	Chunk 1: (pHO2~GTSP2178~1) 196 reads removed by virus read start test filter (10 NTs).
+[103.8 minutes]	Chunk 1: (pHO2~GTSP2178~1) 196 reads removed after all filters.
+[104.0 minutes]	Chunk 1: (pHO2~GTSP2178~1) 2 reads remaining after LTR/ITR capture.
+[104.0 minutes]	Chunk 1: (pHO2~GTSP2178~1) captured random linker ids.
+[104.0 minutes]	Chunk 1: (2476) reads remaining after read length filters.
+[104.0 minutes]	Chunk 1: (pHO2~GTSP2178~1) completed with 2476 reads.
+[104.5 minutes]	Chunk 1: (pM12~GTSP2179~1) 203003 reads pass barcode filter.
+[104.5 minutes]	Chunk 1: (pM12~GTSP2179~1) 7470 reads pass linker code filter.
+[104.5 minutes]	Chunk 1: (pM12~GTSP2179~1) 7361 reads pass all demultiplexing filters.
+[104.6 minutes]	Chunk 1: (pM12~GTSP2179~1) 3 reads aligned to the vector and will be removed.
+[104.6 minutes]	Chunk 1: (pM12~GTSP2179~1) 7360 reads remain after removing vector aligned reads and synchronizing.
+[104.6 minutes]	Chunk 1: (pM12~GTSP2179~1) 178 reads removed by virus read start test filter (10 NTs).
+[104.6 minutes]	Chunk 1: (pM12~GTSP2179~1) 178 reads removed after all filters.
+[104.8 minutes]	Chunk 1: (pM12~GTSP2179~1) 2 reads remaining after LTR/ITR capture.
+[104.8 minutes]	Chunk 1: (pM12~GTSP2179~1) captured random linker ids.
+[104.8 minutes]	Chunk 1: (1948) reads remaining after read length filters.
+[104.8 minutes]	Chunk 1: (pM12~GTSP2179~1) completed with 1948 reads.
+[105.2 minutes]	Chunk 1: (NTC~NTC2~1) 203003 reads pass barcode filter.
+[105.2 minutes]	Chunk 1: (NTC~NTC2~1) 0 reads pass linker code filter.
+[105.2 minutes]	Chunk 1: (NTC~NTC2~1) No reads demultiplexed.
