@@ -136,9 +136,19 @@ expIntSites.noF8.percentNearOnco    <- n_distinct(expIntSites.noF8.nearOncogene$
 expSitesInTU.inOnco  <- n_distinct(expIntSites.noF8.inTU.inOncogene$posid) / n_distinct(expIntSites.noF8.inTU$posid)
 
 
+# Expanded clones (>= 5 cells) near oncogenes
+#--------------------------------------------------------------------------------------------------
+n_distinct(subset(expIntSites.noF8, estAbund >= 5)$posid)
+pExpandedClonesNearOcno <- 
+  n_distinct(subset(expIntSites.noF8, estAbund >= 5 & abs(nearestOncoFeatureDist) <= 25000)$posid) / 
+  n_distinct(subset(expIntSites.noF8, estAbund >= 5)$posid)
 
-#
-#----------------------
+pExpandedClonesInTu <- 
+  n_distinct(subset(expIntSites.noF8, estAbund >= 5 & nearestFeatureDist == 0)$posid) / 
+  n_distinct(subset(expIntSites.noF8, estAbund >= 5)$posid)
+
+
+
 
 
 # Same clones across samples
@@ -543,6 +553,8 @@ if(! file.exists('data/CanFam3.randomSites_10mers.rds')){
        }))
   
   saveRDS(r, file = 'data/CanFam3.randomSites_10mers.rds')
+} else {
+  r <- readRDS('data/CanFam3.randomSites_10mers.rds')
 }
 
 
@@ -567,6 +579,8 @@ o <- bind_rows(lapply(split(o, 1:nrow(o)), function(x){
        x
      }))
 
+o <- left_join(o, dplyr::select(expIntSites.noF8, posid, estAbund, reads, nearestFeature), by = 'posid') %>% 
+     arrange(desc(alnScore), desc(estAbund))
 
 randomTests <- do.call(rbind, lapply(1:1000, function(x){
                  set.seed(x)
@@ -583,7 +597,7 @@ pVals <- unlist(lapply(1:1000, function(x){
 
 
 d <- bind_rows(tibble(NTs = 0:10, n = round(apply(randomTests, 2, mean)), source = 'Random'),
-               tibble(NTs = 0:10, n = table(o$alnScore), source = 'ITR end'))
+               tibble(NTs = 0:10, n = table(o$alnScore), source = 'ITR'))
 
 ITRendAlnPlot <- 
   ggplot(d, aes(factor(NTs), n, fill = source)) + 
